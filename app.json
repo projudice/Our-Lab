@@ -1,7 +1,8 @@
 {
   "pages": [
-    "pages/index/index",
-    "pages/logs/logs"
+    "pages/info/info",
+    "pages/device/device",
+    "pages/class/class"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -9,5 +10,30 @@
     "navigationBarTitleText": "WeChat",
     "navigationBarTextStyle": "black"
   },
-  "sitemapLocation": "sitemap.json"
+  "sitemapLocation": "sitemap.json",
+  "tabBar": {
+    "borderStyle": "black",
+    "color": "#8a8a8a",
+    "selectedColor": "#1296db",
+    "list": [
+      {
+        "pagePath": "pages/info/info",
+        "text": "基本情况",
+        "iconPath": "pages/resources/info-dis.png",
+        "selectedIconPath": "pages/resources/info.png"
+      },
+      {
+        "pagePath": "pages/class/class",
+        "text": "实验课",
+        "iconPath": "pages/resources/class-dis.png",
+        "selectedIconPath": "pages/resources/class.png"
+      },
+      {
+        "pagePath": "pages/device/device",
+        "text": "实验设备",
+        "iconPath": "pages/resources/device-dis.png",
+        "selectedIconPath": "pages/resources/device.png"
+      }
+    ]
+  }
 }
