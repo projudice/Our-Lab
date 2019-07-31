@@ -1,2 +1,4 @@
 <!--pages/info/info.wxml-->
-<text>pages/info/info.wxml</text>
+<view class="content">
+  <text>建筑环境与能源应用工程实验室</text>
+</view>

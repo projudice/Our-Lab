@@ -1,1 +1,4 @@
 /* pages/info/info.wxss */
+.content {
+  text-align: center;
+}
