@@ -1,6 +1,9 @@
 //app.js
 App({
   onLaunch: function () {
+    const { model, system, statusBarHeight, windowHeight, windowWidth } = wx.getSystemInfoSync();
+    this.globalData.windowHeight = windowHeight;
+    this.globalData.windowWidth = windowWidth;
     // 展示本地存储能力
     var logs = wx.getStorageSync('logs') || []
     logs.unshift(Date.now())
@@ -34,6 +37,9 @@ App({
     })
   },
   globalData: {
-    userInfo: null
+    userInfo: null,
+    token: null,
+    windowHeight: 0,
+    windowWidth: 0
   }
 })

@@ -1,4 +1,5 @@
 // pages/class/class.js
+const app = getApp()
 Page({
 
   /**
@@ -12,7 +13,15 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    var currentPage = getCurrentPages()[getCurrentPages().length - 1].route
+    if(!app.globalData.token){
+      wx.navigateTo({
+        url: '/pages/login/login?page='+currentPage,
+        success: function(res) {},
+        fail: function(res) {},
+        complete: function(res) {},
+      })
+    }
   },
 
   /**

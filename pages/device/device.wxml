@@ -1,2 +1,4 @@
 <!--pages/device/device.wxml-->
-<text>pages/device/device.wxml</text>
+<view>
+  <login style="position: absolute; width: 100%; height: 100%"></login>
+</view>

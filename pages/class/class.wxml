@@ -1,2 +1,4 @@
 <!--pages/class/class.wxml-->
-<text>pages/class/class.wxml</text>
+<view>
+  实验课
+</view>

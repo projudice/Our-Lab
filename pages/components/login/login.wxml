@@ -1,0 +1,28 @@
+<!--pages/components/login/login.wxml-->
+<view class="content">
+  <!-- 登录块 -->
+  <view class="loginBlock" style="z-index: {{loginZIndex}};" animation="{{loginAnimation}}">
+    <form bindsubmit="loginSubmit">
+      <view class="loginText" bindtap="loginChange">登 录</view>
+      <view style="font-size: larger; margin-top: 30rpx">帐 号</view>
+      <input name="id" placeholder="学号或工资号" placeholder-style="color: gainsboro" class="input"></input>
+      <view style="font-size: larger">密 码</view>
+      <input name="password" password="true" class="input"></input>
+      <button form-type="submit" class="button">ok</button>
+    </form>
+  </view>
+
+  <!-- 注册块 -->
+  <view class="logonBlock" style="z-index: {{logonZIndex}};" animation="{{logonAnimation}}">
+    <form bindsubmit="logonSubmit">
+      <view class="logonText" bindtap="logonChange">注 册</view>
+      <view style="font-size: larger; margin-top: 30rpx">帐 号</view>
+      <input name="id" placeholder="学号或工资号" placeholder-style="color: white" class="input"></input>
+      <view style="font-size: larger">姓 名</view>
+      <input name="name" class="input"></input>
+      <view style="font-size: larger">密 码</view>
+      <input name="password" password="true" class="input"></input>
+      <button form-type="submit" class="button">ok</button>
+    </form>
+  </view>
+</view>

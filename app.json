@@ -2,7 +2,8 @@
   "pages": [
     "pages/info/info",
     "pages/device/device",
-    "pages/class/class"
+    "pages/class/class",
+    "pages/login/login"
   ],
   "window": {
     "backgroundTextStyle": "light",
