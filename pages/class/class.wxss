@@ -1,1 +1,9 @@
 /* pages/class/class.wxss */
+.block{
+  padding: 30rpx;
+  background-color: #00c3ff25;
+  border-radius: 10px;
+  margin: 30rpx;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 1);
+  overflow: scroll
+}

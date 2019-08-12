@@ -1,4 +1,4 @@
 <!--pages/device/device.wxml-->
 <view>
-  <login style="position: absolute; width: 100%; height: 100%"></login>
+实验设备
 </view>

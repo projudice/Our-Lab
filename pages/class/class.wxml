@@ -1,4 +1,15 @@
 <!--pages/class/class.wxml-->
 <view>
-  实验课
+  <view wx:for="{{classes}}" wx:key="{{item.id}}" data-index="{{index}}" bindtap="appoint" class="block">
+    <text style="font-size: 60rpx;">{{item.className}}</text>
+    <text style="float: right; font-size: 40rpx; margin-top: 10rpx">
+      {{item.time}}
+    </text>
+    <view style="font-size: 40rpx;  margin-top: 10rpx">
+      {{item.teacherName}}
+    </view>
+    <view data-index="{{index}}" catchtap="details" style="float: right; font-size: 35rpx;">
+      详细信息>
+    </view>
+  </view>
 </view>
