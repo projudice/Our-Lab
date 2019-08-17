@@ -1,5 +1,6 @@
 // pages/login/login.js
 const app = getApp()
+const api = require('../../utils/api.js')
 Page({
 
   /**
@@ -55,14 +56,42 @@ Page({
 
   loginSubmit: function (e) {
     var self = this
-    console.log('登录', e.detail.value)
-    var token = {
-      id: e.detail.value.id
+    var id = e.detail.value.id
+    var password = e.detail.value.password
+    if(id === '' || password === ''){
+      wx.showToast({
+        title: '账号或密码不能为空',
+        icon: 'none'
+      })
+    }else{
+      wx.showLoading({
+        title: '登录中',
+      })
+      api.login(id, password, function(res){
+        wx.hideLoading()
+        if(res.data.error){
+          wx.showToast({
+            title: res.data.message,
+            icon: 'none'
+          })
+        }else{
+          app.globalData.token = res.data.data.token
+          wx.showToast({
+            title: '登录成功',
+            icon: 'none'
+          })
+          wx.switchTab({
+            url: '/' + self.data.page,
+          })
+        }
+      }, function(err){
+        wx.hideLoading()
+        wx.showToast({
+          title: '登录失败',
+          icon: 'none'
+        })
+      })
     }
-    app.globalData.token = token
-    wx.switchTab({
-      url: '/' + self.data.page,
-    })
   },
 
   logonSubmit: function (e) {

@@ -1,17 +1,36 @@
 // pages/info/info.js
+const api = require('../../utils/api.js')
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+    name: '',
+    introduction: ''
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    var self = this
+    api.getInfo(function(res){
+      if(res.data.error){
+        self.setData({
+          introduction: '无介绍'
+        })
+      }else{
+        self.setData({
+          name: res.data.data.name,
+          introduction: res.data.data.introduction
+        })
+      }
+    }, function(err){
+      self.setData({
+        introduction: '获取信息失败，请下拉刷新'
+      })
+    })
   },
 
   /**
@@ -46,7 +65,23 @@ Page({
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function () {
-
+    var self = this
+    api.getInfo(function (res) {
+      if (res.error) {
+        self.setData({
+          introduction: '无介绍'
+        })
+      } else {
+        self.setData({
+          name: res.data.name,
+          introduction: res.data.introduction
+        })
+      }
+    }, function (err) {
+      self.setData({
+        introduction: '获取信息失败，请下拉刷新'
+      })
+    })
   },
 
   /**

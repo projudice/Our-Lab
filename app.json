@@ -36,5 +36,10 @@
         "selectedIconPath": "pages/resources/device.png"
       }
     ]
+  },
+  "permission": {
+    "scope.userLocation": {
+      "desc": "你的位置信息将用于实验课签到功能"
+    }
   }
 }

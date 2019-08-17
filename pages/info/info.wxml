@@ -1,4 +1,5 @@
 <!--pages/info/info.wxml-->
 <view class="content">
-  <text>建筑环境与能源应用工程实验室</text>
+  <view class="name">{{name}}</view>
+  <view class="introduction">{{introduction}}</view>
 </view>

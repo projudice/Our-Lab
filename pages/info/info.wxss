@@ -2,3 +2,11 @@
 .content {
   text-align: center;
 }
+
+.name{
+  font-size: 50rpx;
+  margin: 20rpx;
+}
+.introduction{
+  font-size: 35rpx;
+}

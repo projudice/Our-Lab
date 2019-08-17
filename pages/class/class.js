@@ -1,5 +1,6 @@
 // pages/class/class.js
 const app = getApp()
+const api = require('../../utils/api.js')
 Page({
 
   /**
@@ -50,6 +51,11 @@ Page({
       success(res) {
         if (res.confirm) {
           console.log('用户点击确定')
+          api.chooseClasses(self.data.classes[index].id, function(res){
+            console.log(res)
+          }, function(err){
+            console.log(err)
+          })
         } else if (res.cancel) {
           console.log('用户点击取消')
         }
