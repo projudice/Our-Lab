@@ -1,3 +1,6 @@
 {
-  "usingComponents": {}
+  "usingComponents": {
+    "date": "/pages/components/date/date",
+    "detail": "/pages/components/detail/detail"
+  }
 }

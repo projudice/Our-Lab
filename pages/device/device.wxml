@@ -1,4 +1,15 @@
 <!--pages/device/device.wxml-->
-<view>
-实验设备
+<view wx:if="{{type === 0}}" class="noType">
+  登录获取设备信息
+</view>
+<view wx:else>
+  <view style="background-color: {{item.dangerous?'#FF4D58':'#82cee8'}}" class="block" wx:for="{{devices}}" wx:key="{{item.id}}" bindtap="appoint" data-index="{{index}}">
+    <image src="{{item.photoSrc?(url+item.photoSrc):imageSrc}}"></image>
+    <view class="content">
+      <view style="text-align: center;">{{item.name}}</view>
+      <view class="right">
+        <view class="introduction">{{item.introduction}}</view>
+      </view>
+    </view>
+  </view>
 </view>

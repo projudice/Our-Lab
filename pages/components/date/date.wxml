@@ -1,0 +1,4 @@
+<!--pages/components/date/date.wxml-->
+<view class="container">
+<view class="block" wx:for="{{time}}" wx:key="item" bindtap="chooseDate" data-index="{{index}}" style="background-color: {{styleList[index]?'rgba(0, 195, 255, 0.25)':'white'}}">{{item.md}}</view>
+</view>

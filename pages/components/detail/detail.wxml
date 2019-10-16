@@ -1,0 +1,20 @@
+<!--显示实验室信息的组件-->
+<view class="container" bindtap="close">
+  <view class="block">
+    <block wx:if="{{info.length}}">
+      <view wx:for="{{info}}" wx:key="{{item.id}}" class="memberInfo">
+        <image class="image" src="{{url+item.photoSrc}}"></image>
+        <view class="info">
+          <view>{{item.name}}</view>
+          <view style="font-size: 30rpx;">{{item.introduction}}</view>
+        </view>
+      </view>
+    </block>
+    <block wx:else>
+      <view style="text-align: center; font-size: 50rpx;">{{info.name}}</view>
+      <view>{{info.introduction}}</view>
+      <view>{{info.content}}</view>
+      <view style="text-align: right;">{{info.updatedAt}}</view>
+    </block>
+  </view>
+</view>

@@ -1,0 +1,13 @@
+<!--pages/selfClasses/selfClasses.wxml-->
+<view class="block" wx:for="{{classes}}" wx:key="{{item.id}}">
+  <view class="firstLine">
+  <view>{{item.experiment.name}}</view>
+  <view>{{item.experiment.reportUntil+','+(item.experiment.beginTime+1)+'-'+(item.experiment.stopTime+1)}}</view>
+  </view>
+  <view class="secondLine">
+  <view>{{item.experiment.teacherName}}</view>
+  <view>{{item.experiment.room.location}}</view>
+  </view>
+  <button class="btn" wx:if="{{item.experiment.startSignIn}}" disabled="{{item.isSigned?true:false}}" type="primary" bindtap="signIn" data-index="{{index}}">{{item.isSigned?isSigned:isNotSigned}}</button>
+  <button class="btn" type="warn" bindtap="dropClass" data-index="{{index}}">退课</button>
+</view>

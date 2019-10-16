@@ -1,0 +1,18 @@
+/* pages/selfDevices/selfDevices.wxss */
+.block{
+  margin: 20rpx;
+  padding: 20rpx;
+  border-radius: 5px;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 1);
+  overflow: scroll;
+  background-color: #82cee8;
+}
+.btn{
+  float: right;
+  margin: 0 20rpx;
+}
+.firstLine{
+  font-size: 40rpx;
+  display: flex;
+  justify-content: space-between;
+}

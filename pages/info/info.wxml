@@ -1,5 +1,11 @@
-<!--pages/info/info.wxml-->
-<view class="content">
-  <view class="name">{{name}}</view>
-  <view class="introduction">{{introduction}}</view>
+<!--基本情况页面-->
+<block wx:for="{{photos}}" wx:key="{{item.id}}">
+  <image src="{{url + item.src}}"></image>
+</block>
+<view class="title">—— 公 告 ——</view>
+<view wx:for="{{notice}}" wx:key="{{item.id}}" class="notice">
+  <view bindtap="viewDetails" data-value="{{item}}">{{item.title}}</view>
 </view>
+<view class="introduction" bindtap="viewDetails" data-value="{{labInfo}}">实验室基本信息</view>
+<view class="introduction" bindtap="viewDetails" data-value="{{peopleIntroduction}}">实验室人员介绍</view>
+<detail info="{{info}}" bindclose="closeEvent" style="display: {{display}}"></detail>

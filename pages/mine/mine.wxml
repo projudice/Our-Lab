@@ -1,0 +1,26 @@
+<!--pages/mine/mine.wxml-->
+<view>
+  <view class="blockTop">
+    <view wx:if="{{hasToken}}">
+      <view style="font-size: 40rpx; margin: 20rpx">{{userInfo.name}}</view>
+      <view style="font-size: 40rpx; margin: 20rpx">{{userInfo.schoolNumber}}</view>
+      <view style="font-size: 40rpx; margin: 20rpx">{{userInfo.identify}}</view>
+      <button style="width: 200rpx;" bindtap="logout">注 销</button>
+    </view>
+    <button wx:else class="btn" bindtap="login">登 录</button>
+  </view>
+  <view wx:if="{{type}}" class="blockBottom">
+    <view wx:if="{{type === 1}}" class="line" bindtap="classRecords">我的选课
+      <text>></text>
+    </view>
+    <view wx:elif="{{type >= 2}}" class="line" bindtap="createClassesRecords">我的开课
+      <text>></text>
+    </view>
+    <view class="line" bindtap="deviceRecords">我的设备预约
+      <text>></text>
+    </view>
+    <view class="line" bindtap="changePassword">修改密码
+      <text>></text>
+    </view>
+  </view>
+</view>

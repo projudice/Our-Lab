@@ -1,0 +1,14 @@
+<!--pages/selfCreate/selfCreate.wxml-->
+<view class="block" wx:for="{{classes}}" wx:key="{{item.id}}">
+  <view class="firstLine">
+  <view>{{item.name}}</view>
+  <view>{{item.reportUntil+','+(item.beginTime+1)+'-'+(item.stopTime+1)}}</view>
+  </view>
+  <view class="secondLine">
+  <view>{{item.teacherName}}</view>
+  <view>{{item.room.location}}</view>
+  </view>
+  <button class="btn" disabled="{{item.startSignIn?true:false}}" type="primary" bindtap="startSignIn" data-index="{{index}}">{{item.startSignIn?isStarted:isNotStarted}}</button>
+  <button class="btn" type="warn" bindtap="cancelClass" data-index="{{index}}">取消开设</button>
+  <button class="btn" type="default" bindtap="viewStudents" data-index="{{index}}">学生</button>
+</view>

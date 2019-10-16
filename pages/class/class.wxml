@@ -1,15 +1,268 @@
 <!--pages/class/class.wxml-->
-<view>
-  <view wx:for="{{classes}}" wx:key="{{item.id}}" data-index="{{index}}" bindtap="appoint" class="block">
-    <text style="font-size: 60rpx;">{{item.className}}</text>
-    <text style="float: right; font-size: 40rpx; margin-top: 10rpx">
-      {{item.time}}
-    </text>
-    <view style="font-size: 40rpx;  margin-top: 10rpx">
-      {{item.teacherName}}
+<view wx:if="{{type === 0}}" class="noType">
+  登录获取课程信息
+</view>
+<!-- 学生 -->
+<block wx:elif="{{type === 1}}">
+  <!-- date组件已废弃 -->
+  <!-- <date days="7" bindmyevent="onMyEvent"></date> -->
+
+  <!-- 筛选日期教室 -->
+  <view class="pickerContainer">
+    <picker bindchange="bindDateChange" value="{{dateInex}}" range="{{dateArray}}">
+      <view class="picker">
+        日期：{{dateArray[dateIndex]}}
+      </view>
+    </picker>
+    <view class="triangle"></view>
+    <picker bindchange="bindRoomChange" value="{{roomInex}}" range="{{roomArray}}">
+      <view class="picker">
+        教室：{{rooms[roomIndex].location}}
+      </view>
+    </picker>
+    <view class="triangle"></view>
+    <button bindtap="filter" class="filter">筛选</button>
+  </view>
+
+  <view>
+    <view class="entry">
+      <view class="section">第一节</view>
+      <view wx:for="{{classesSomeDay}}" wx:key="{{item.id}}" class="block" wx:if="{{item.beginTime === 0}}">
+        <view class="name">
+          <view style="font-size: 50rpx;">{{item.name}}</view>
+          <view style="font-size: 35rpx; margin-top: 10rpx">
+            {{item.currentStudentNumber}}/{{item.maxStudentNumber}}
+          </view>
+        </view>
+        <view class="instruction">
+          <view>{{item.teacherName}}</view>
+          <view data-index="{{index}}" catchtap="details">详细信息></view>
+        </view>
+        <view class="buttonBlock">
+          <button type="primary" data-index="{{index}}" bindtap="appoint">选课</button>
+        </view>
+      </view>
     </view>
-    <view data-index="{{index}}" catchtap="details" style="float: right; font-size: 35rpx;">
-      详细信息>
+    <view class="entry">
+      <view class="section">
+        第二节
+      </view>
+      <view wx:for="{{classesSomeDay}}" wx:key="{{item.id}}" data-index="{{index}}" class="block" wx:if="{{item.beginTime<=1&&item.stopTime>=1}}">
+        <view class="name">
+          <view style="font-size: 50rpx;">{{item.name}}</view>
+          <view style="font-size: 35rpx; margin-top: 10rpx">
+            {{item.currentStudentNumber}}/{{item.maxStudentNumber}}
+          </view>
+        </view>
+        <view class="instruction">
+          <view>{{item.teacherName}}</view>
+          <view data-index="{{index}}" catchtap="details">详细信息></view>
+        </view>
+        <view class="buttonBlock">
+          <button type="primary" data-index="{{index}}" bindtap="appoint">选课</button>
+        </view>
+      </view>
+    </view>
+    <view class="entry">
+      <view class="section">第三节
+      </view>
+      <view wx:for="{{classesSomeDay}}" wx:key="{{item.id}}" data-index="{{index}}" class="block" wx:if="{{item.beginTime<=2&&item.stopTime>=2}}">
+        <view class="name">
+          <view style="font-size: 50rpx;">{{item.name}}</view>
+          <view style="font-size: 35rpx; margin-top: 10rpx">
+            {{item.currentStudentNumber}}/{{item.maxStudentNumber}}
+          </view>
+        </view>
+        <view class="instruction">
+          <view>{{item.teacherName}}</view>
+          <view data-index="{{index}}" catchtap="details">详细信息></view>
+        </view>
+        <view class="buttonBlock">
+          <button type="primary" data-index="{{index}}" bindtap="appoint">选课</button>
+        </view>
+      </view>
+    </view>
+    <view class="entry">
+      <view class="section">第四节
+      </view>
+      <view wx:for="{{classesSomeDay}}" wx:key="{{item.id}}" data-index="{{index}}" class="block" wx:if="{{item.beginTime<=3&&item.stopTime>=3}}">
+        <view class="name">
+          <view style="font-size: 50rpx;">{{item.name}}</view>
+          <view style="font-size: 35rpx; margin-top: 10rpx">
+            {{item.currentStudentNumber}}/{{item.maxStudentNumber}}
+          </view>
+        </view>
+        <view class="instruction">
+          <view>{{item.teacherName}}</view>
+          <view data-index="{{index}}" catchtap="details">详细信息></view>
+        </view>
+        <view class="buttonBlock">
+          <button type="primary" data-index="{{index}}" bindtap="appoint">选课</button>
+        </view>
+      </view>
+    </view>
+    <view class="entry">
+      <view class="section">第五节
+      </view>
+      <view wx:for="{{classesSomeDay}}" wx:key="{{item.id}}" data-index="{{index}}" class="block" wx:if="{{item.beginTime<=4&&item.stopTime>=4}}">
+        <view class="name">
+          <view style="font-size: 50rpx;">{{item.name}}</view>
+          <view style="font-size: 35rpx; margin-top: 10rpx">
+            {{item.currentStudentNumber}}/{{item.maxStudentNumber}}
+          </view>
+        </view>
+        <view class="instruction">
+          <view>{{item.teacherName}}</view>
+          <view data-index="{{index}}" catchtap="details">详细信息></view>
+        </view>
+        <view class="buttonBlock">
+          <button type="primary" data-index="{{index}}" bindtap="appoint">选课</button>
+        </view>
+      </view>
+    </view>
+    <view class="entry">
+      <view class="section">第六节
+      </view>
+      <view wx:for="{{classesSomeDay}}" wx:key="{{item.id}}" data-index="{{index}}" class="block" wx:if="{{item.beginTime<=5&&item.stopTime>=5}}">
+        <view class="name">
+          <view style="font-size: 50rpx;">{{item.name}}</view>
+          <view style="font-size: 35rpx; margin-top: 10rpx">
+            {{item.currentStudentNumber}}/{{item.maxStudentNumber}}
+          </view>
+        </view>
+        <view class="instruction">
+          <view>{{item.teacherName}}</view>
+          <view data-index="{{index}}" catchtap="details">详细信息></view>
+        </view>
+        <view class="buttonBlock">
+          <button type="primary" data-index="{{index}}" bindtap="appoint">选课</button>
+        </view>
+      </view>
     </view>
   </view>
-</view>
+</block>
+
+<!-- 老师 -->
+<block wx:else>
+  <!-- 筛选日期教室 -->
+  <view class="pickerContainer">
+    <picker bindchange="bindDateChange" value="{{dateInex}}" range="{{dateArray}}">
+      <view class="picker">
+        日期：{{dateArray[dateIndex]}}
+      </view>
+    </picker>
+    <view class="triangle"></view>
+    <picker bindchange="bindRoomChange" value="{{roomInex}}" range="{{roomArray}}">
+      <view class="picker">
+        教室：{{rooms[roomIndex].location}}
+      </view>
+    </picker>
+    <view class="triangle"></view>
+    <button bindtap="filter" class="filter">筛选</button>
+  </view>
+
+  <view>
+    <view class="entry">
+      <view class="section">第一节</view>
+      <button class="createClass" type="primary" data-index="0" bindtap="createClass">开 课</button>
+      <view wx:for="{{classesSomeDay}}" wx:key="{{item.id}}" class="blockTeacher" wx:if="{{item.beginTime === 0}}">
+        <view class="name">
+          <view style="font-size: 50rpx;">{{item.name}}</view>
+          <view style="font-size: 35rpx; margin-top: 10rpx">
+            {{item.currentStudentNumber}}/{{item.maxStudentNumber}}
+          </view>
+        </view>
+        <view class="instruction">
+          <view>{{item.teacherName}}</view>
+          <view data-index="{{index}}" catchtap="details">详细信息></view>
+        </view>
+      </view>
+    </view>
+    <view class="entry">
+      <view class="section">
+        第二节
+      </view>
+      <button class="createClass" type="primary" data-index="1" bindtap="createClass">开 课</button>
+      <view wx:for="{{classesSomeDay}}" wx:key="{{item.id}}" data-index="{{index}}" class="blockTeacher" wx:if="{{item.beginTime<=1&&item.stopTime>=1}}">
+        <view class="name">
+          <view style="font-size: 50rpx;">{{item.name}}</view>
+          <view style="font-size: 35rpx; margin-top: 10rpx">
+            {{item.currentStudentNumber}}/{{item.maxStudentNumber}}
+          </view>
+        </view>
+        <view class="instruction">
+          <view>{{item.teacherName}}</view>
+          <view data-index="{{index}}" catchtap="details">详细信息></view>
+        </view>
+      </view>
+    </view>
+    <view class="entry">
+      <view class="section">第三节
+      </view>
+      <button class="createClass" type="primary" data-index="2" bindtap="createClass">开 课</button>
+      <view wx:for="{{classesSomeDay}}" wx:key="{{item.id}}" data-index="{{index}}" class="blockTeacher" wx:if="{{item.beginTime<=2&&item.stopTime>=2}}">
+        <view class="name">
+          <view style="font-size: 50rpx;">{{item.name}}</view>
+          <view style="font-size: 35rpx; margin-top: 10rpx">
+            {{item.currentStudentNumber}}/{{item.maxStudentNumber}}
+          </view>
+        </view>
+        <view class="instruction">
+          <view>{{item.teacherName}}</view>
+          <view data-index="{{index}}" catchtap="details">详细信息></view>
+        </view>
+      </view>
+    </view>
+    <view class="entry">
+      <view class="section">第四节
+      </view>
+      <button class="createClass" type="primary" data-index="3" bindtap="createClass">开 课</button>
+      <view wx:for="{{classesSomeDay}}" wx:key="{{item.id}}" data-index="{{index}}" class="blockTeacher" wx:if="{{item.beginTime<=3&&item.stopTime>=3}}">
+        <view class="name">
+          <view style="font-size: 50rpx;">{{item.name}}</view>
+          <view style="font-size: 35rpx; margin-top: 10rpx">
+            {{item.currentStudentNumber}}/{{item.maxStudentNumber}}
+          </view>
+        </view>
+        <view class="instruction">
+          <view>{{item.teacherName}}</view>
+          <view data-index="{{index}}" catchtap="details">详细信息></view>
+        </view>
+      </view>
+    </view>
+    <view class="entry">
+      <view class="section">第五节
+      </view>
+      <button class="createClass" type="primary" data-index="4" bindtap="createClass">开 课</button>
+      <view wx:for="{{classesSomeDay}}" wx:key="{{item.id}}" data-index="{{index}}" class="blockTeacher" wx:if="{{item.beginTime<=4&&item.stopTime>=4}}">
+        <view class="name">
+          <view style="font-size: 50rpx;">{{item.name}}</view>
+          <view style="font-size: 35rpx; margin-top: 10rpx">
+            {{item.currentStudentNumber}}/{{item.maxStudentNumber}}
+          </view>
+        </view>
+        <view class="instruction">
+          <view>{{item.teacherName}}</view>
+          <view data-index="{{index}}" catchtap="details">详细信息></view>
+        </view>
+      </view>
+    </view>
+    <view class="entry">
+      <view class="section">第六节
+      </view>
+      <button class="createClass" type="primary" data-index="5" bindtap="createClass">开 课</button>
+      <view wx:for="{{classesSomeDay}}" wx:key="{{item.id}}" data-index="{{index}}" class="blockTeacher" wx:if="{{item.beginTime<=5&&item.stopTime>=5}}">
+        <view class="name">
+          <view style="font-size: 50rpx;">{{item.name}}</view>
+          <view style="font-size: 35rpx; margin-top: 10rpx">
+            {{item.currentStudentNumber}}/{{item.maxStudentNumber}}
+          </view>
+        </view>
+        <view class="instruction">
+          <view>{{item.teacherName}}</view>
+          <view data-index="{{index}}" catchtap="details">详细信息></view>
+        </view>
+      </view>
+    </view>
+  </view>
+</block>

@@ -1,5 +1,5 @@
 {
   "usingComponents": {
-    "login": "/pages/components/login/login"
+    "date": "/pages/components/date/date"
   }
 }

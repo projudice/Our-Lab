@@ -1,1 +1,47 @@
 /* pages/device/device.wxss */
+.noType {
+  text-align: center;
+  font-size: 60rpx;
+  margin-top: 60rpx;
+}
+.block {
+  margin: 60rpx;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 1);
+  border-radius: 5px;
+  overflow: hidden;
+  height: 500rpx;
+  background-color: #82cee8;
+  color: white;
+}
+
+image {
+  width: 640rpx;
+  height: 300rpx;
+}
+
+.content {
+  font-size: 50rpx;
+  align-items: center;
+  display: flex;
+  height: 200rpx;
+  padding: 0 20rpx;
+  justify-content: space-between;
+}
+
+.introduction {
+  font-size: 14px;
+  /* height: 130rpx; */
+  overflow: scroll;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.details{
+  font-size: 35rpx;
+  float: right;
+}
+.right{
+  width: 70%;
+  height: 180rpx;
+}

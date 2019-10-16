@@ -1,9 +1,108 @@
 /* pages/class/class.wxss */
-.block{
-  padding: 30rpx;
-  background-color: #00c3ff25;
+
+.block {
+  padding: 10rpx;
+  background-color: #a8e5fa;
   border-radius: 10px;
-  margin: 30rpx;
   box-shadow: 0 0 8px rgba(0, 0, 0, 1);
-  overflow: scroll
+  position: relative;
+  width: 73%;
+  margin-left: 10rpx;
+}
+.blockTeacher {
+  padding: 10rpx;
+  background-color: #a8e5fa;
+  border-radius: 10px;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 1);
+  position: relative;
+  flex: 1;
+  margin: 0 20rpx;
+  z-index: 10;
+}
+.buttonBlock{
+  position: absolute;
+  right: -80%;
+  width: 80%;
+  top: 50%;
+  display: flex;
+  transform: translateY(-50%);
+}
+.buttonBlock button{
+  font-size: 30rpx;
+  margin: 10rpx;
+}
+.pickerContainer{
+  display: flex;
+  flex-direction: row;
+  background-color: gainsboro;
+}
+
+.picker {
+  font-size: 35rpx;
+  margin: 20rpx 5rpx 20rpx 20rpx;
+}
+.triangle{
+  width: 0;
+  height: 0;
+  border: 10rpx solid ;
+  border-color: #00bfff transparent transparent;
+  margin: 40rpx 20rpx 0 0;
+}
+.filter{
+  margin: 10rpx 20rpx;
+  border-radius: 40rpx;
+  background-color: #82cee8;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 1);
+  font-size: 35rpx;
+  flex: 1;
+  height: 70rpx;
+  line-height: 70rpx;
+}
+.section {
+  width: 35rpx;
+  font-size: 35rpx;
+}
+.entry{
+  display: flex;
+  flex-direction: row;
+  margin: 30rpx 0;
+  position: relative;
+}
+.name {
+  display: flex;
+  justify-content: space-between;
+  overflow: auto;
+}
+
+.instruction {
+  display: flex;
+  justify-content: space-between;
+  font-size: 30rpx;
+  margin-top: 10rpx;
+}
+
+.noType {
+  text-align: center;
+  font-size: 60rpx;
+  margin-top: 60rpx;
+}
+
+.button {
+  margin: 0;
+  font-size: 16px;
+}
+
+.img {
+  width: 100rpx;
+  height: 100rpx;
+  position: fixed;
+  right: 30rpx;
+  bottom: 30rpx;
+}
+.createClass{
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%,-50%);
+  z-index: 5;
 }

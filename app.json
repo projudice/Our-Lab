@@ -3,13 +3,22 @@
     "pages/info/info",
     "pages/device/device",
     "pages/class/class",
-    "pages/login/login"
+    "pages/login/login",
+    "pages/mine/mine",
+    "pages/selfClasses/selfClasses",
+    "pages/selfDevices/selfDevices",
+    "pages/createClass/createClass",
+    "pages/appointDevice/appointDevice",
+    "pages/selfCreate/selfCreate",
+    "pages/changePassword/changePassword",
+    "pages/viewStudents/viewStudents"
   ],
   "window": {
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#fff",
     "navigationBarTitleText": "Our Lab",
-    "navigationBarTextStyle": "black"
+    "navigationBarTextStyle": "black",
+    "enablePullDownRefresh": true
   },
   "sitemapLocation": "sitemap.json",
   "tabBar": {
@@ -34,6 +43,12 @@
         "text": "实验设备",
         "iconPath": "pages/resources/device-dis.png",
         "selectedIconPath": "pages/resources/device.png"
+      },
+      {
+        "pagePath": "pages/mine/mine",
+        "text": "我的",
+        "iconPath": "pages/resources/mine-dis.png",
+        "selectedIconPath": "pages/resources/mine.png"
       }
     ]
   },

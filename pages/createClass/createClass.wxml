@@ -1,0 +1,52 @@
+<!--pages/createClass/createClass.wxml-->
+<view id="title">开设实验</view>
+<form bindsubmit="formSubmit">
+  <view class="block">
+    <view class="formItem">实验名称</view>
+    <input name="name"></input>
+  </view>
+  <view class="block">
+    <view class="formItem">老师姓名</view>
+    <input name="teacherName"></input>
+  </view>
+  <view class="block" style="display: flex; justify-content: space-between;">
+    <view class="formItem">教室</view>
+    <picker class="picker" bindchange="bindRoomChange" value="{{indexRoom}}" range="{{arrRoom}}" range-key="{{'room'}}" name="roomId">
+    {{arrRoom[indexRoom].room}}
+    </picker>
+  </view>
+  <view class="block">
+    <view class="formItem">简要介绍</view>
+    <input name="instruction"></input>
+  </view>
+  <view class="block" style="display: flex; justify-content: space-between;">
+    <view class="formItem">选课截止日期</view>
+    <picker class="picker" mode="date" value="{{dateStop}}" start="{{dateFrom}}" end="{{dateTo}}" bindchange="bindStopDateChange" name="accessibleUntil">
+    {{dateStop}}
+    </picker>
+  </view>
+  <view class="block" style="display: flex; justify-content: space-between;">
+    <view class="formItem">上课日期</view>
+    <picker class="picker" mode="date" value="{{date}}" start="{{dateFrom}}" end="{{dateTo}}" bindchange="bindDateChange" name="reportUntil">
+    {{date}}
+    </picker>
+  </view>
+  <view class="block" style="display: flex; justify-content: space-between;">
+    <view class="formItem">开始时间</view>
+    <picker class="picker" bindchange="bindBeginChange" value="{{indexBegin}}" range="{{arrBegin}}" name="beginTime">
+    {{arrBegin[indexBegin]}}
+    </picker>
+  </view>
+  <view class="block" style="display: flex; justify-content: space-between;">
+    <view class="formItem">结束时间</view>
+    <picker class="picker" bindchange="bindStopChange" value="{{indexStop}}" range="{{arrStop}}" name="stopTime">
+    {{arrStop[indexStop]}}
+    </picker>
+  </view>
+  <view class="block">
+    <view class="formItem">人数上限</view>
+    <input name="maxStudentNumber" type="number"></input>
+  </view>
+  <view style="text-align: center; color: red;">上传实验指导书等文件请到web上传</view>
+  <button form-type="submit">开 课</button>
+</form>

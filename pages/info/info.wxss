@@ -1,12 +1,20 @@
 /* pages/info/info.wxss */
-.content {
+.title{
   text-align: center;
-}
-
-.name{
   font-size: 50rpx;
+}
+.notice{
+  text-align: center;
+  color: red;
+  font-size: 40rpx;
   margin: 20rpx;
 }
 .introduction{
-  font-size: 35rpx;
+  text-align: center;
+  font-size: 40rpx;
+  margin: 20rpx;
+}
+image{
+  margin: 2%;
+  width: 96%;
 }

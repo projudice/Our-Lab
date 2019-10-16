@@ -1,0 +1,8 @@
+<!--pages/viewStudents/viewStudents.wxml-->
+<view class="block" wx:for="{{info}}" wx:key="{{item.id}}">
+  <view class="firstLine">
+  <view>{{item.student.name}}</view>
+  <view>{{item.student.schoolNumber}}</view>
+  </view>
+  <button class="btn" type="primary" bindtap="signIn" disabled="{{item.isSigned?true:false}}" data-index="{{index}}">{{item.isSigned?isSigned:isNotSigned}}</button>
+</view>

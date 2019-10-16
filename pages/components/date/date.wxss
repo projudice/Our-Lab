@@ -1,0 +1,16 @@
+/* pages/components/date/date.wxss */
+.container{
+  display: flex;
+  overflow-x: scroll;
+  height: 40px;
+  padding: 10px;
+}
+.block{
+  line-height: 40px;
+  min-width: 100px;
+  font-size: 40rpx;
+  text-align: center;
+  border-radius: 5px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 1);
+  margin-right: 10px;
+}

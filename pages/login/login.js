@@ -11,7 +11,8 @@ Page({
     logonAnimation: {},
     loginZIndex: 10,
     logonZIndex: 9,
-    page: '/pages/info/info'
+    page: '/pages/info/info',
+    disabled: false
   },
 
   loginChange: function () {
@@ -28,6 +29,7 @@ Page({
     })
     setTimeout(function () {
       self.setData({
+        disabled: self.data.loginZIndex == 10 ? true : false,
         loginZIndex: self.data.loginZIndex == 10 ? 9 : 10,
         logonZIndex: self.data.logonZIndex == 10 ? 9 : 10
       })
@@ -48,6 +50,7 @@ Page({
     })
     setTimeout(function () {
       self.setData({
+        disabled: self.data.loginZIndex == 10 ? true : false,
         loginZIndex: self.data.loginZIndex == 10 ? 9 : 10,
         logonZIndex: self.data.logonZIndex == 10 ? 9 : 10
       })
@@ -76,6 +79,15 @@ Page({
           })
         }else{
           app.globalData.token = res.data.data.token
+          app.globalData.userInfo = res.data.data.user
+          app.globalData.type = res.data.data.user.type
+          if(res.data.data.user.type === 3){
+            app.globalData.userInfo.identify = '管理员'
+          } else if (res.data.data.user.type === 2){
+            app.globalData.userInfo.identify = '老师'
+          } else {
+            app.globalData.userInfo.identify = '学生'
+          }
           wx.showToast({
             title: '登录成功',
             icon: 'none'
