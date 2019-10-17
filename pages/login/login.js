@@ -94,6 +94,11 @@ Page({
           })
           wx.switchTab({
             url: '/' + self.data.page,
+            success: function(){
+              var page = getCurrentPages().pop();
+              if (page == undefined || page == null) return;
+              page.onLoad();
+            }
           })
         }
       }, function(err){

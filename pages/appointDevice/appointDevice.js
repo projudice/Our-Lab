@@ -16,7 +16,8 @@ Page({
     morning: false,
     afternoon: false,
     evening: false,
-    date: "2019-",
+    date: "",
+    year: '2019-'
   },
 
   bindDateChange: function(e) {
@@ -29,17 +30,20 @@ Page({
   filter: function() {
     var self = this
     var appointSomeDay = []
-    self.data.date += this.data.dateArray[this.data.dateIndex]
+    self.data.date = this.data.year + this.data.dateArray[this.data.dateIndex]
     appointSomeDay = this.data.appointments.filter((item) => item.reservedDate.indexOf(this.data.dateArray[this.data.dateIndex]) !== -1)
+    self.data.morning = false
+    self.data.afternoon = false
+    self.data.evening = false
     appointSomeDay.forEach((item) => {
       if (item.reservedDuration >= 4) {
         self.data.morning = true
       }
       if (item.reservedDuration % 2 === 1) {
-        seld.data.evening = true
+        self.data.evening = true
       }
       if ((item.reservedDuration / 2) % 2 === 1) {
-        seld.data.afternoon = true
+        self.data.afternoon = true
       }
     })
     this.setData({
@@ -62,11 +66,10 @@ Page({
     var obj = {
       equipmentId: self.data.id,
       userId: app.globalData.userInfo.id,
-      reverseTime: self.data.date,
+      reserveTime: self.data.date,
       reserveDuration: index
     }
     console.log(obj)
-    console.log(typeof obj.reverseTime)
     api.appointDevice(obj, function(res){
       if(res.data.error){
         wx.showToast({
@@ -77,6 +80,10 @@ Page({
         wx.showToast({
           title: '预约成功',
           icon: 'none'
+        })
+        self.onLoad({
+          alert:'null',
+          id: self.data.id
         })
       }
     }, function(err){
@@ -111,6 +118,7 @@ Page({
         self.setData({
           appointments: res.data.data
         })
+        self.filter()
         console.log('预约', res.data.data)
       }
     }, function(err) {
@@ -121,6 +129,7 @@ Page({
     })
     //计算筛选器里的日期
     var date = new Date()
+    self.data.dateArray = []
     for (let i = 0; i < 3; i++) {
       if (i !== 0) {
         date.setDate(date.getDate() + 1)
@@ -144,9 +153,8 @@ Page({
     }
     self.setData({
       dateArray: self.data.dateArray,
-      date: date.getFullYear()+"-"
+      year: date.getFullYear()+"-"
     })
-    this.filter()
   },
 
   /**
@@ -181,6 +189,7 @@ Page({
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function() {
+    var self = this
     api.getDeviceAppointed(this.data.id, function (res) {
       if (res.data.error) {
         wx.showToast({

@@ -125,10 +125,9 @@ Page({
     var currentPage = getCurrentPages()[getCurrentPages().length - 1].route
     //计算筛选器里的日期
     var date = new Date()
+    self.data.dateArray = []
     for (let i = 0; i < 7; i++) {
-      if (i !== 0) {
-        date.setDate(date.getDate() + 1)
-      }
+      date.setDate(date.getDate() + 1)
       let str = ''
       if ((date.getMonth() + 1) > 9) {
         str += (date.getMonth() + 1)
@@ -157,6 +156,7 @@ Page({
         })
       } else {
         var temp = res.data.data
+        self.data.roomArray = []
         temp.forEach((item) => {
           self.data.roomArray.push(item.name + item.location)
         })

@@ -334,11 +334,11 @@ request: function(options) {
   appointDevice: function (obj,success, fail) {
     this.request({
       url: '/equipment/reservationRecord',
-      method: 'post',
+      method: 'POST',
       data: {
         equipmentId: obj.equipmentId,
         userId: obj.userId,
-        reverseTime: obj.reverseTime,
+        reserveTime: obj.reserveTime,
         reserveDuration: obj.reserveDuration
       },
       header: {

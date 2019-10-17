@@ -1,7 +1,7 @@
 <!--pages/selfDevices/selfDevices.wxml-->
 <view class="block" wx:for="{{devices}}" wx:key="{{item.id}}">
   <view class="firstLine">
-  <view>{{item.name}}</view>
+  <view>{{item.equipmentName}}</view>
   <view>{{item.reserveTime+','+item.time}}</view>
   </view>
   <button class="btn" type="warn" bindtap="cancelAppoint" data-index="{{index}}">取消预约</button>

@@ -41,6 +41,7 @@ Page({
    */
   onLoad: function (options) {
     var self = this
+    console.log(app.globalData.userInfo.id)
     api.getSelfDevices(app.globalData.userInfo.id, function (res) {
       if (res.data.error) {
         wx.showToast({
@@ -51,19 +52,20 @@ Page({
         var time = ''
         self.data.devices = res.data.data
         self.data.devices.forEach((item)=>{
-          if (item.reservedDuration >= 4) {
+          if (item.reserveDuration >= 4) {
             time += '上午'
           }
-          if ((item.reservedDuration / 2) % 2 === 1) {
+          if ((item.reserveDuration / 2) % 2 === 1) {
             time += '下午'
           }
-          if (item.reservedDuration % 2 === 1) {
+          if (item.reserveDuration % 2 === 1) {
             time += '晚上'
           }
           item.time = time
         })
         self.setData({
-          devices: res.data.data
+          devices: res.data.data,
+          time: time
         })
         console.log(res.data.data)
       }
