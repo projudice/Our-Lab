@@ -8,10 +8,10 @@
     "pages/selfClasses/selfClasses",
     "pages/selfDevices/selfDevices",
     "pages/createClass/createClass",
-    "pages/appointDevice/appointDevice",
     "pages/selfCreate/selfCreate",
     "pages/changePassword/changePassword",
-    "pages/viewStudents/viewStudents"
+    "pages/viewStudents/viewStudents",
+    "pages/details/details"
   ],
   "window": {
     "backgroundTextStyle": "light",

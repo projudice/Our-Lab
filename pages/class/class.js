@@ -13,6 +13,7 @@ Page({
     type: app.globalData.type,
     dateIndex: 0,
     dateArray: [],
+    year: [],
     roomIndex: 0,
     roomArray: [],
     rooms: [],
@@ -85,36 +86,26 @@ Page({
   details: function(e) {
     var self = this
     var index = e.currentTarget.dataset.index
-    console.log('detail', index)
-    wx.showLoading({
-      title: '正在打开',
-    })
-    wx.downloadFile({
-      url: api.serverDomain + self.data.classesSomeDay[index].guideBook,
-      success(res) {
-        console.log('success')
-        wx.openDocument({
-          filePath: res.tempFilePath,
-          fileType: 'docx' || 'pdf' || 'doc',
-          success: function() {
-            wx.hideLoading()
-          }
-        })
-      },
-      fail(err) {
-        wx.hideLoading()
-        wx.showToast({
-          title: '下载失败',
-          icon: 'none'
-        })
-      }
+    var temp = {
+      name: self.data.classesSomeDay[index].name,
+      teacherName: self.data.classesSomeDay[index].teacherName,
+      instruction: self.data.classesSomeDay[index].instruction,
+      url: self.data.classesSomeDay[index].guideBook
+    }
+    wx.navigateTo({
+      url: '../details/details?info=' + JSON.stringify(temp),
     })
   },
 
   createClass: function(e) {
     var self = this
+    var temp = {
+      beginIndex: +e.currentTarget.dataset.index,
+      roomIndex: self.data.roomIndex,
+      date: self.data.year[self.data.dateIndex] + self.data.dateArray[self.data.dateIndex]
+    }
     wx.navigateTo({
-      url: '/pages/createClass/createClass?beginTime=' + e.currentTarget.dataset.index,
+      url: '/pages/createClass/createClass?info=' + JSON.stringify(temp),
     })
   },
   /**
@@ -144,9 +135,11 @@ Page({
         str += date.getDate()
       }
       self.data.dateArray.push(str)
+      self.data.year.push(date.getFullYear() + '-')
     }
     self.setData({
-      dateArray: self.data.dateArray
+      dateArray: self.data.dateArray,
+      year: self.data.year
     })
     api.getRooms(function(res) {
       if (res.data.error) {

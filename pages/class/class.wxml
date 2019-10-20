@@ -21,7 +21,7 @@
       </view>
     </picker>
     <view class="triangle"></view>
-    <button bindtap="filter" class="filter">筛选</button>
+    <button bindtap="filter" class="filter">查询</button>
   </view>
 
   <view>
@@ -158,12 +158,12 @@
       </view>
     </picker>
     <view class="triangle"></view>
-    <button bindtap="filter" class="filter">筛选</button>
+    <button bindtap="filter" class="filter">查询</button>
   </view>
 
   <view>
     <view class="entry">
-      <view class="section">第一节</view>
+      <view class="section">第1,2节</view>
       <button class="createClass" type="primary" data-index="0" bindtap="createClass">开 课</button>
       <view wx:for="{{classesSomeDay}}" wx:key="{{item.id}}" class="blockTeacher" wx:if="{{item.beginTime === 0}}">
         <view class="name">
@@ -180,7 +180,7 @@
     </view>
     <view class="entry">
       <view class="section">
-        第二节
+        第3,4节
       </view>
       <button class="createClass" type="primary" data-index="1" bindtap="createClass">开 课</button>
       <view wx:for="{{classesSomeDay}}" wx:key="{{item.id}}" data-index="{{index}}" class="blockTeacher" wx:if="{{item.beginTime<=1&&item.stopTime>=1}}">
@@ -197,7 +197,7 @@
       </view>
     </view>
     <view class="entry">
-      <view class="section">第三节
+      <view class="section">第5,6节
       </view>
       <button class="createClass" type="primary" data-index="2" bindtap="createClass">开 课</button>
       <view wx:for="{{classesSomeDay}}" wx:key="{{item.id}}" data-index="{{index}}" class="blockTeacher" wx:if="{{item.beginTime<=2&&item.stopTime>=2}}">
@@ -214,7 +214,7 @@
       </view>
     </view>
     <view class="entry">
-      <view class="section">第四节
+      <view class="section">第7,8节
       </view>
       <button class="createClass" type="primary" data-index="3" bindtap="createClass">开 课</button>
       <view wx:for="{{classesSomeDay}}" wx:key="{{item.id}}" data-index="{{index}}" class="blockTeacher" wx:if="{{item.beginTime<=3&&item.stopTime>=3}}">
@@ -231,7 +231,7 @@
       </view>
     </view>
     <view class="entry">
-      <view class="section">第五节
+      <view class="section">第9,10节
       </view>
       <button class="createClass" type="primary" data-index="4" bindtap="createClass">开 课</button>
       <view wx:for="{{classesSomeDay}}" wx:key="{{item.id}}" data-index="{{index}}" class="blockTeacher" wx:if="{{item.beginTime<=4&&item.stopTime>=4}}">
@@ -248,7 +248,7 @@
       </view>
     </view>
     <view class="entry">
-      <view class="section">第六节
+      <view class="section">第11,12节
       </view>
       <button class="createClass" type="primary" data-index="5" bindtap="createClass">开 课</button>
       <view wx:for="{{classesSomeDay}}" wx:key="{{item.id}}" data-index="{{index}}" class="blockTeacher" wx:if="{{item.beginTime<=5&&item.stopTime>=5}}">

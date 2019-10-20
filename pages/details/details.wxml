@@ -1,0 +1,19 @@
+<!--pages/details/details.wxml-->
+<view class="container">
+  <view class="entry">
+    <view>实验名称:</view>
+    <view>{{info.name}}</view>
+  </view>
+  <view class="entry">
+    <view>实验教师:</view>
+    <view>{{info.teacherName}}</view>
+  </view>
+  <view class="entry">
+    <view>实验介绍:</view>
+    <text style="width: 60%; text-align: right;">{{info.instruction}}</text>
+  </view>
+  <view class="entry">
+    <view>实验指导书:</view>
+    <view bindtap="openDocument" style="border-bottom: 4rpx solid;">查看</view>
+  </view>
+</view>

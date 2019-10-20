@@ -7,7 +7,7 @@
   </view>
   <view class="block">
     <view class="formItem">老师姓名</view>
-    <input name="teacherName"></input>
+    <input name="teacherName" value="{{teacherName}}"></input>
   </view>
   <view class="block" style="display: flex; justify-content: space-between;">
     <view class="formItem">教室</view>
@@ -17,7 +17,7 @@
   </view>
   <view class="block">
     <view class="formItem">简要介绍</view>
-    <input name="instruction"></input>
+    <textarea name="instruction"></textarea>
   </view>
   <view class="block" style="display: flex; justify-content: space-between;">
     <view class="formItem">选课截止日期</view>

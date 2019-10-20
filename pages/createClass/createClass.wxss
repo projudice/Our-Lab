@@ -11,6 +11,13 @@ input{
   color: black;
   font-size: 40rpx;
 }
+textarea{
+  margin: 20rpx;
+  background-color: gainsboro;
+  color: black;
+  font-size: 40rpx;
+  width: 95%;
+}
 .formItem{
   margin: 0 20rpx 0;
   font-size: 40rpx;

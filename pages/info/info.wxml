@@ -2,10 +2,13 @@
 <block wx:for="{{photos}}" wx:key="{{item.id}}">
   <image src="{{url + item.src}}"></image>
 </block>
+<view class="infoBlock">
+  <view class="introduction" bindtap="viewDetails" data-value="{{labInfo}}">基本信息</view>
+  <view class="introduction" bindtap="viewDetails" data-value="{{peopleIntroduction}}">人员信息</view>
+  <view class="introduction" bindtap="viewDevices">设备信息</view>
+</view>
 <view class="title">—— 公 告 ——</view>
 <view wx:for="{{notice}}" wx:key="{{item.id}}" class="notice">
-  <view bindtap="viewDetails" data-value="{{item}}">{{item.title}}</view>
+  <view bindtap="viewDetails" data-value="{{item}}">{{item.title+' ('+item.updatedAt+')'}}</view>
 </view>
-<view class="introduction" bindtap="viewDetails" data-value="{{labInfo}}">实验室基本信息</view>
-<view class="introduction" bindtap="viewDetails" data-value="{{peopleIntroduction}}">实验室人员介绍</view>
 <detail info="{{info}}" bindclose="closeEvent" style="display: {{display}}"></detail>

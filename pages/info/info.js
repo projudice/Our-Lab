@@ -29,6 +29,23 @@ Page({
     })
   },
 
+  viewDevices: function () {
+    var self = this
+    wx.downloadFile({
+      url: api.serverDomain + self.data.labInfo.fileSrc,
+      success: function (res) {
+        const filePath = res.tempFilePath
+        wx.openDocument({
+          filePath: filePath,
+          fileType: 'docx' || 'pdf' || 'doc',
+          success: function (res) {
+            console.log('打开文档成功')
+          }
+        })
+      }
+    })
+  },
+
   /**
    * 生命周期函数--监听页面加载
    */

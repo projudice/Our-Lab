@@ -9,13 +9,12 @@ Page({
   data: {
     devices: [],
     index: 0,
-    time: ''
   },
 
   cancelAppoint: function (e) {
     var self = this
     var index = e.currentTarget.dataset.index
-    api.cancelAppoint(self.data.devices[index].id, app.globalData.userInfo.id, function (res) {
+    api.cancelAppoint(self.data.devices[index].recordId, app.globalData.userInfo.id, function (res) {
       if (res.data.error) {
         wx.showToast({
           title: res.data.message,
@@ -41,7 +40,6 @@ Page({
    */
   onLoad: function (options) {
     var self = this
-    console.log(app.globalData.userInfo.id)
     api.getSelfDevices(app.globalData.userInfo.id, function (res) {
       if (res.data.error) {
         wx.showToast({
@@ -49,9 +47,9 @@ Page({
           icon: 'none'
         })
       } else {
-        var time = ''
         self.data.devices = res.data.data
         self.data.devices.forEach((item)=>{
+          var time = ''
           if (item.reserveDuration >= 4) {
             time += '上午'
           }
@@ -64,8 +62,7 @@ Page({
           item.time = time
         })
         self.setData({
-          devices: res.data.data,
-          time: time
+          devices: self.data.devices,
         })
         console.log(res.data.data)
       }

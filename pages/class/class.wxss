@@ -16,7 +16,7 @@
   box-shadow: 0 0 8px rgba(0, 0, 0, 1);
   position: relative;
   flex: 1;
-  margin: 0 20rpx;
+  margin: 0 20rpx 0 90rpx;
   z-index: 10;
 }
 .buttonBlock{
@@ -61,6 +61,7 @@
 .section {
   width: 35rpx;
   font-size: 35rpx;
+  border-left: 15rpx solid #a8e5fa;
 }
 .entry{
   display: flex;

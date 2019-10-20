@@ -20,7 +20,7 @@
   display: flex;
   justify-content: center;
   flex-direction: column;
-  transform: translateX(-50px);
+  /* transform: translateX(-50px); */
 }
 
 .logonBlock {

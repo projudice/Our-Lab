@@ -7,13 +7,14 @@ Page({
    * 页面的初始数据
    */
   data: {
+    teacherName: '',
     dateFrom: '',
     dateTo: '',
     date: '',
     dateStop: '',
-    array: ['第一节', '第二节', '第三节', '第四节', '第五节', '第六节'],
-    arrBegin: ['第一节', '第二节', '第三节', '第四节', '第五节', '第六节'],
-    arrStop: ['第一节', '第二节', '第三节', '第四节', '第五节', '第六节'],
+    array: ['第1,2节', '第3,4节', '第5,6节', '第7,8节', '第9,10节', '第11,12节'],
+    arrBegin:['第1,2节', '第3,4节', '第5,6节', '第7,8节', '第9,10节', '第11,12节'],
+    arrStop: ['第1,2节', '第3,4节', '第5,6节', '第7,8节', '第9,10节', '第11,12节'],
     arrRoom: [],
     indexBegin: 0,
     indexStop: 0,
@@ -41,6 +42,7 @@ Page({
   bindBeginChange: function (e) {
     this.setData({
       indexBegin: e.detail.value,
+      indexStop: 0,
       arrStop: this.data.array.slice(e.detail.value)
     })
   },
@@ -95,6 +97,11 @@ Page({
             })
             wx.switchTab({
               url: '/pages/class/class',
+              success: function () {
+                var page = getCurrentPages().pop();
+                if (page == undefined || page == null) return;
+                page.onLoad();
+              }
             })
           }
         }, function(err){
@@ -149,12 +156,17 @@ Page({
     this.data.dateTo = str
     this.data.arrRoom = app.globalData.rooms
     this.data.arrRoom.forEach((item)=>{item.room = item.name + item.location})
+    var obj = JSON.parse(options.info)
     this.setData({
       dateFrom: this.data.dateFrom,
       dateTo: this.data.dateTo,
-      date: str,
-      dateStop: str,
+      date: obj.date,
+      dateStop: obj.date,
       arrRoom: this.data.arrRoom,
+      indexBegin: obj.beginIndex,
+      arrStop: this.data.array.slice(obj.beginIndex),
+      indexRoom: obj.roomIndex,
+      teacherName: app.globalData.userInfo.name
     })
   },
 

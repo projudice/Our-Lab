@@ -1,0 +1,19 @@
+/* pages/details/details.wxss */
+.container{
+  width: 80%;
+  height: 750rpx;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  overflow: auto;
+  background-color: #a8e5fa;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 1);
+  margin: 0 atuo;
+}
+.entry{
+  font-size: 40rpx;
+  margin: 40rpx;
+  display: flex;
+  justify-content: space-between;
+}
