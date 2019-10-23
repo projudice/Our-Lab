@@ -37,9 +37,9 @@ App({
     // })
   },
   globalData: {
-    userInfo: null,
-    token: null,
-    type: 0,
+    userInfo: null,                      //用户信息
+    token: null,                         //登录后的令牌
+    type: 0,                             //用户类型
     windowHeight: 0,
     windowWidth: 0,
     rooms: []

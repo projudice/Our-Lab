@@ -6,7 +6,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    info: {}
+    info: {}                       //从另一个页面传入的信息
   },
 
   openDocument: function() {

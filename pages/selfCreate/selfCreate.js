@@ -13,6 +13,9 @@ Page({
     index: 0
   },
 
+  /**
+   * 取消开课
+   */
   cancelClass: function(e) {
     var self = this
     var index = e.currentTarget.dataset.index
@@ -37,6 +40,9 @@ Page({
     })
   },
 
+  /**
+   * 开始签到
+   */
   startSignIn: function(e) {
     wx.showLoading({
       title: '签到开始中',
@@ -80,6 +86,9 @@ Page({
     })
   },
 
+  /**
+   * 查看选课学生
+   */
   viewStudents: function(e) {
     var self = this
     var index = e.currentTarget.dataset.index

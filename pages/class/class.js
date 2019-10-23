@@ -7,31 +7,39 @@ Page({
    * 页面的初始数据
    */
   data: {
-    classes: [],
+    classes: [],                        //从api获取的所有课的信息
     index: 0,
-    classesSomeDay: [],
+    classesSomeDay: [],                 //某一天的课
     type: app.globalData.type,
-    dateIndex: 0,
-    dateArray: [],
-    year: [],
-    roomIndex: 0,
-    roomArray: [],
-    rooms: [],
+    dateIndex: 0,                       //用于日期picker
+    dateArray: [],                      //用于日期picker
+    year: [],                           //与每个日期相对应的年份
+    roomIndex: 0,                       //用于教室picker
+    roomArray: [],                      //用于教室picker
+    rooms: [],                          //从api获取的所有教室的信息
   },
 
+  /**
+   * 监听日期picker改变
+   */
   bindDateChange: function(e) {
     this.setData({
       dateIndex: e.detail.value
     })
   },
 
+  /**
+   * 监听教室picker改变
+   */
   bindRoomChange: function(e) {
     this.setData({
       roomIndex: e.detail.value
     })
   },
 
-  //选定日期和教室进行筛选
+  /**
+   * 基于日期教室对课过滤
+   */
   filter: function() {
     this.data.classesSomeDay = this.data.classes.filter((item) => item.reportUntil.indexOf(this.data.dateArray[this.data.dateIndex]) !== -1 && item.room.id === this.data.rooms[this.data.roomIndex].id)
     this.setData({
@@ -40,7 +48,7 @@ Page({
     console.log(this.data.classesSomeDay)
   },
 
-  //监听date组件事件
+  //监听date组件事件（未使用该组件）
   // onMyEvent: function(e) {
   //   this.data.classesSomeDay = this.data.classes.filter((item) => item.reportUntil.indexOf(e.detail.day) !== -1)
   //   console.log(this.data.classesSomeDay)
@@ -83,6 +91,9 @@ Page({
     })
   },
 
+  /**
+   * 点击详细信息进入详情页面
+   */
   details: function(e) {
     var self = this
     var index = e.currentTarget.dataset.index
@@ -97,6 +108,9 @@ Page({
     })
   },
 
+  /**
+   * 点击开课进入开课页面
+   */
   createClass: function(e) {
     var self = this
     var temp = {
@@ -108,12 +122,12 @@ Page({
       url: '/pages/createClass/createClass?info=' + JSON.stringify(temp),
     })
   },
+
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
     var self = this
-    var currentPage = getCurrentPages()[getCurrentPages().length - 1].route
     //计算筛选器里的日期
     var date = new Date()
     self.data.dateArray = []
@@ -161,6 +175,8 @@ Page({
         console.log('教室', res.data)
       }
     })
+    //判断是否登录
+    var currentPage = getCurrentPages()[getCurrentPages().length - 1].route
     if (!app.globalData.token) {
       wx.navigateTo({
         url: '/pages/login/login?page=' + currentPage

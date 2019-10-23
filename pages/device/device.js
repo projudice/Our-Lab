@@ -8,32 +8,41 @@ Page({
    */
   data: {
     type: app.globalData.type,
-    warning: '',
-    display: 'none',
-    appointments: [],
+    warning: '',                        //安全警示的内容
+    display: 'none',                    //控制是否显示安全警示
+    appointments: [],                   //从api获取所有预约情况
     dateIndex: 0,
     dateArray: [],
     deviceIndex: 0,
     deviceArray: [],
-    morning: false,
-    afternoon: false,
-    evening: false,
+    morning: false,                     //控制上午块的样式选择
+    afternoon: false,                   //控制下午块的样式选择
+    evening: false,                     //控制晚上块的样式选择
     date: "",
-    year: '2019-'
+    year: '2019-'                       //计算年份拼接在日期前作为api参数
   },
 
+  /**
+   * 监听日期改变
+   */
   bindDateChange: function(e) {
     this.setData({
       dateIndex: e.detail.value
     })
   },
 
+  /**
+   * 监听设备改变
+   */
   bindDeviceChange: function(e) {
     this.setData({
       deviceIndex: e.detail.value
     })
   },
 
+  /**
+   * 在获取到某个设备预约情况后再做日期筛选
+   */
   beforeFilter: function() {
     var self = this
     var appointSomeDay = []
@@ -61,7 +70,9 @@ Page({
     console.log('今天预约', appointSomeDay)
   },
 
-  //选定日期进行筛选
+  /**
+   * 基于日期设备筛选
+   */
   filter: function() {
     var self = this
     api.getDeviceAppointed(self.data.deviceArray[self.data.deviceIndex].id, function(res) {
@@ -85,6 +96,9 @@ Page({
     })
   },
 
+  /**
+   * 点击已阅关闭安全警示
+   */
   close: function() {
     this.setData({
       display: 'none'

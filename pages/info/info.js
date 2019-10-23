@@ -7,15 +7,18 @@ Page({
    * 页面的初始数据
    */
   data: {
-    labInfo: {},
-    peopleIntroduction: {},
-    notice: [],
-    info: {},
+    labInfo: {},                             //实验室信息
+    peopleIntroduction: {},                  //人员信息
+    notice: [],                              //公告
+    info: {},                                //上述信息的具体信息
     display: 'none',
     photos: [],
-    url: api.serverDomain
+    url: api.serverDomain                    //用于拼接图片src
   },
 
+  /**
+   * 点击查看各信息的具体信息
+   */
   viewDetails: function(e) {
     this.setData({
       info: e.currentTarget.dataset.value,
@@ -23,13 +26,22 @@ Page({
     })
   },
 
+  /**
+   * 关闭具体信息
+   */
   closeEvent: function(e) {
     this.setData({
       display: e.detail.display
     })
   },
 
+  /**
+   * 打开设备信息文件
+   */
   viewDevices: function () {
+    wx.showLoading({
+      title: '文件加载中',
+    })
     var self = this
     wx.downloadFile({
       url: api.serverDomain + self.data.labInfo.fileSrc,
@@ -39,8 +51,20 @@ Page({
           filePath: filePath,
           fileType: 'docx' || 'pdf' || 'doc',
           success: function (res) {
-            console.log('打开文档成功')
+            wx.hideLoading()
+          },fail(){
+            wx.hideLoading()
+            wx.showToast({
+              title: '文件打开失败',
+              icon: 'none'
+            })
           }
+        })
+      },fail(){
+        wx.hideLoading()
+        wx.showToast({
+          title: '文件加载失败',
+          icon: 'none'
         })
       }
     })
@@ -143,23 +167,7 @@ Page({
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function() {
-    var self = this
-    api.getInfo(function(res) {
-      if (res.error) {
-        self.setData({
-          introduction: '无介绍'
-        })
-      } else {
-        self.setData({
-          name: res.data.data.name,
-          introduction: res.data.data.introduction
-        })
-      }
-    }, function(err) {
-      self.setData({
-        introduction: '获取信息失败，请下拉刷新'
-      })
-    })
+    this.onLoad()
   },
 
   /**

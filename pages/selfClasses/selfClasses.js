@@ -13,6 +13,9 @@ Page({
     index: 0
   },
 
+  /**
+   * 退课
+   */
   dropClass: function(e) {
     var self = this
     var index = e.currentTarget.dataset.index
@@ -37,6 +40,9 @@ Page({
     })
   },
 
+  /**
+   * 签到
+   */
   signIn: function (e) {
     wx.showLoading({
       title: '签到中',

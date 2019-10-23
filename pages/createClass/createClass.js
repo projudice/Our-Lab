@@ -8,10 +8,10 @@ Page({
    */
   data: {
     teacherName: '',
-    dateFrom: '',
-    dateTo: '',
-    date: '',
-    dateStop: '',
+    dateFrom: '',                       //日期picker的开始日期
+    dateTo: '',                         //日期picker的结束日期
+    date: '',                           //上课日期
+    dateStop: '',                       //选课截止日期
     array: ['第1,2节', '第3,4节', '第5,6节', '第7,8节', '第9,10节', '第11,12节'],
     arrBegin:['第1,2节', '第3,4节', '第5,6节', '第7,8节', '第9,10节', '第11,12节'],
     arrStop: ['第1,2节', '第3,4节', '第5,6节', '第7,8节', '第9,10节', '第11,12节'],
@@ -21,24 +21,36 @@ Page({
     indexRoom: 0,
   },
 
+  /**
+   * 监听上课日期改变
+   */
   bindDateChange: function(e){
     this.setData({
       date: e.detail.value
     })
   },
 
+  /**
+   * 监听教室改变
+   */
   bindRoomChange: function (e) {
     this.setData({
       indexRoom: e.detail.value
     })
   },
 
+  /**
+   * 监听截止日期改变
+   */
   bindStopDateChange: function (e) {
     this.setData({
       dateStop: e.detail.value
     })
   },
 
+  /**
+   * 监听课的开始时间改变
+   */
   bindBeginChange: function (e) {
     this.setData({
       indexBegin: e.detail.value,
@@ -47,6 +59,9 @@ Page({
     })
   },
 
+  /**
+   * 监听课的结束时间改变
+   */
   bindStopChange: function (e) {
     this.setData({
       indexStop: e.detail.value,

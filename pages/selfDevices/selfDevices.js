@@ -11,6 +11,9 @@ Page({
     index: 0,
   },
 
+  /**
+   * 取消预约
+   */
   cancelAppoint: function (e) {
     var self = this
     var index = e.currentTarget.dataset.index

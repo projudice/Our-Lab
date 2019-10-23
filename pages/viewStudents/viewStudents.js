@@ -12,6 +12,9 @@ Page({
     id: 0
   },
 
+  /**
+   * 教师辅助签到
+   */
   signIn: function(e) {
     var self = this
     var index = e.currentTarget.dataset.index

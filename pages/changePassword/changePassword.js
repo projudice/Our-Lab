@@ -8,7 +8,10 @@ Page({
   data: {
 
   },
-  
+
+  /**
+   * 提交表单修改密码
+   */
   formSubmit: function (e) {
     console.log(e.detail.value)
     api.changePassword(e.detail.value, function (res) {
